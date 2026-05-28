@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ballas — Histoire</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#7B2FBE;
+  --accent:#9B4DCA;
+  --bg:#0a0a0a;
+  --bg-card:#111111;
+  --bg-card2:#161616;
+  --border:rgba(123,47,190,0.25);
+  --text:#e8e8e8;
+  --muted:#888;
+}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+
+main{max-width:1200px;margin:0 auto;padding:8rem 2rem 5rem}
+
+/* PAGE HEADER */
+.page-header{margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.page-header-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block}
+.page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6rem);letter-spacing:3px;color:#fff;line-height:1}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.tl-item{position:relative;margin-bottom:3rem;padding-left:2rem}
+.tl-item::before{content:'';position:absolute;left:-2.45rem;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-year{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:3px;color:var(--accent);margin-bottom:6px}
+.tl-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:#fff;margin-bottom:0.75rem}
+.tl-text{font-size:14px;line-height:1.9;color:var(--muted)}
+
+/* QUOTE */
+.big-quote{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);letter-spacing:2px;color:var(--accent);border-left:3px solid var(--accent);padding:1.5rem 2rem;margin:3rem 0;line-height:1.3;background:var(--bg-card);border-radius:0 4px 4px 0}
+
+/* CONFLITS */
+.section-label{display:flex;align-items:center;gap:12px;margin:3rem 0 1.5rem}
+.section-label::before{content:'';width:30px;height:2px;background:var(--accent)}
+.section-label span{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent)}
+
+.conflict-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:600px){.conflict-grid{grid-template-columns:1fr}}
+.conflict-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.3s}
+.conflict-card:hover{transform:translateY(-3px)}
+.conflict-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px}
+.conflict-high::before{background:#e24b4a}
+.conflict-mid::before{background:#ef9f27}
+.conflict-low::before{background:#639922}
+.conflict-high{border-color:rgba(226,75,74,0.2)}
+.conflict-high:hover{border-color:rgba(226,75,74,0.5)}
+.conflict-mid{border-color:rgba(239,159,39,0.2)}
+.conflict-mid:hover{border-color:rgba(239,159,39,0.4)}
+.conflict-low{border-color:rgba(99,153,34,0.2)}
+.conflict-low:hover{border-color:rgba(99,153,34,0.4)}
+.cc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem}
+.cc-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(255,255,255,0.08);line-height:1}
+.cc-level{font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.level-high{color:#e24b4a;border:1px solid rgba(226,75,74,0.4)}
+.level-mid{color:#ef9f27;border:1px solid rgba(239,159,39,0.4)}
+.level-low{color:#639922;border:1px solid rgba(99,153,34,0.4)}
+.cc-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:#fff;margin-bottom:0.5rem}
+.cc-desc{font-size:13px;line-height:1.7;color:var(--muted)}
+
+
+
+/* BOTTOM NAV */
+.page-nav{display:flex;justify-content:space-between;align-items:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.nav-btn{font-family:'Barlow',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:10px 24px;border-radius:2px;transition:all 0.2s}
+.nav-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BAL<span>LA</span>S</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="histoire.html" class="active">Histoire</a></li>
+    <li><a href="dossier.html">Dossier RP</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <span class="page-header-tag">Chapitre 02 — Lore & Conflits</span>
+    <h1>L'Histoire des Ballas</h1>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <p class="tl-year">Années 70</p>
+      <p class="tl-title">Les Origines</p>
+      <p class="tl-text">Les Ballas ne sont pas nés d'un jour à l'autre comme ça. Dans les rues de South Los Santos, des jeunes afro des quartiers défavorisés commencent à s'organiser. Pas encore un gang structuré, juste des hommes qui refusent de subir. Bloc par bloc, leur influence grandit silencieusement.</p>
+    </div>
+
+    <div class="tl-item">
+      <p class="tl-year">Années 80</p>
+      <p class="tl-title">La Montée en Puissance</p>
+      <p class="tl-text">Les Ballas s'imposent de plus en plus dans le secteur criminel de Los Santos. Ils structurent l'organisation en trois sets distincts : les South Ranch Ballas, les Eastside Ballas, et les Original Covenant Ballas. Trois groupes, une seule nation violette. Le trafic de crack devient leur première source de revenus et d'influence.</p>
+    </div>
+
+    <div class="tl-item">
+      <p class="tl-year">Années 90</p>
+      <p class="tl-title">La Guerre contre les Familles</p>
+      <p class="tl-text">La rivalité avec les Familles explose. Une guerre de territoire longue et brutale s'installe dans tout le sud de Los Santos. Les Ballas utilisent leur crack pour affaiblir les Familles de l'intérieur, une stratégie bien efficace. Des blocs changent de mains, des membres meurent des deux côtés. Les Ballas finissent par dominer la majorité du Sud.</p>
+    </div>
+
+  </div>
+
+  <div class="big-quote">"Ce quartier a été payé en sang. Il sera défendu de la même façon."</div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <p class="tl-year">2000s</p>
+      <p class="tl-title">Consolidation du Territoire</p>
+      <p class="tl-text">Les Ballas consolident leur emprise sur Davis et Rancho. D'autres factions tentent de s'imposer : les Aztecas et les Vagos, mais se heurtent à nous : une résistance bien organisée de A à Z. Les Ballas ne lâchent pas si facilement. Leur réputation de brutalité font de l'organisation une des plus criminelle et la plus redoutée du sud de Los Santos.</p>
+    </div>
+
+    <div class="tl-item">
+      <p class="tl-year">Aujourd'hui</p>
+      <p class="tl-title">La Nouvelle Génération</p>
+      <p class="tl-text">Une nouvelle génération porte l'héritage des anciens. Ils ont pas choisi cette vie par hasard, ils ont grandi dans ces rues, vu leurs frères tomber. Le violet n'est pas une couleur pour eux, c'est une identité et un hommage. Ils tiennent la cité, ils protègent leur quartier, et ils répondent à chaque affront.</p>
+    </div>
+
+  </div>
+
+  <!-- CONFLITS -->
+  <div class="section-label"><span>Rivalités & Conflits</span></div>
+
+  <div class="conflict-grid">
+    <div class="conflict-card conflict-high">
+      <div class="cc-header">
+        <span class="cc-num">01</span>
+        <span class="cc-level level-high">ENNEMI JURÉ</span>
+      </div>
+      <p class="cc-title">Les Familles</p>
+      <p class="cc-desc">Rivalité historique, la plus ancienne et la plus violente de Los Santos. Guerre permanente pour le contrôle des quartiers sud. Aucune trêve possible.</p>
+    </div>
+    <div class="conflict-card conflict-mid">
+      <div class="cc-header">
+        <span class="cc-num">02</span>
+        <span class="cc-level level-mid">RIVAL DANGEREUX</span>
+      </div>
+      <p class="cc-title">Los Santos Vagos</p>
+      <p class="cc-desc">Tensions territoriales régulières. Malgré d'anciens accords entre hauts gradés, les affrontements de rue restent fréquents.</p>
+    </div>
+    <div class="conflict-card conflict-mid">
+      <div class="cc-header">
+        <span class="cc-num">03</span>
+        <span class="cc-level level-mid">TENSION PERMANENTE</span>
+      </div>
+      <p class="cc-title">Les Aztecas</p>
+      <p class="cc-desc">Conflits d'intérêts sur les zones frontalières. Toute intrusion dans le territoire Ballas est perçue comme une déclaration de guerre.</p>
+    </div>
+    <div class="conflict-card conflict-low">
+      <div class="cc-header">
+        <span class="cc-num">04</span>
+        <span class="cc-level level-low">SOUS CONTRÔLE</span>
+      </div>
+      <p class="cc-title">Conflits Internes</p>
+      <p class="cc-desc">Des dissensions ont parfois éclaté entre les trois sets. L'unité de la nation violette a déjà été mise à l'épreuve — et en est ressortie renforcée.</p>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html" class="nav-btn">← Accueil</a>
+    <a href="dossier.html" class="nav-btn">Dossier RP →</a>
+  </div>
+
+</main>
+<div class="cursor-light" id="cursorLight"></div>
+<style>.cursor-light{pointer-events:none;position:fixed;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.25) 0%,rgba(123,47,190,0.1) 40%,transparent 70%);transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:0;top:0;left:0}</style>
+<script>const light=document.getElementById('cursorLight');document.addEventListener('mousemove',e=>{light.style.left=e.clientX+'px';light.style.top=e.clientY+'px'});</script>
+</body>
+</html>

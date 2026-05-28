@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ballas — La Charte</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#9B4DCA;
+  --bg:#0a0a0a;
+  --bg-card:#111111;
+  --bg-card2:#161616;
+  --border:rgba(123,47,190,0.25);
+  --text:#e8e8e8;
+  --muted:#888;
+}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+
+main{max-width:1200px;margin:0 auto;padding:8rem 2rem 5rem}
+
+.page-header{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.page-header-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:block}
+.page-header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,12vw,10rem);letter-spacing:3px;color:#fff;line-height:1}
+
+/* SECTION */
+.section-label{display:flex;align-items:center;gap:12px;margin:3rem 0 1.5rem}
+.section-label::before{content:'';width:30px;height:2px;background:var(--accent)}
+.section-label span{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent)}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:600px){.info-grid{grid-template-columns:1fr}}
+.info-box{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem}
+.info-box-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.info-box-value{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:#fff}
+
+/* CARD */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent)}
+.card-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:#fff;margin-bottom:1rem}
+.card-text{font-size:14px;line-height:1.8;color:var(--muted)}
+
+/* LISTE PRINCIPES */
+.principe-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.principe-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--muted);line-height:1.5}
+.principe-list li::before{content:'//';color:var(--accent);font-family:'Bebas Neue',sans-serif;font-size:14px;flex-shrink:0;padding-top:1px}
+
+/* RANGS */
+.rang-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:4px;overflow:hidden}
+.rang-row{display:grid;grid-template-columns:2fr 3fr;background:var(--bg-card);transition:background 0.2s}
+.rang-row:hover{background:var(--bg-card2)}
+.rang-name{padding:14px 20px;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1px;color:var(--accent);border-right:1px solid var(--border)}
+.rang-desc{padding:14px 20px;font-size:13px;color:var(--muted);line-height:1.5}
+
+/* HRP GRID */
+.rang-horizontal{display:flex;align-items:stretch;gap:0;margin-bottom:1.5rem;overflow-x:auto;padding-bottom:8px}
+.rang-h-item{flex:1;min-width:140px;border-radius:4px;padding:1.5rem 1rem;display:flex;flex-direction:column;gap:6px;transition:transform 0.2s}
+.rang-h-item:hover{transform:translateY(-4px)}
+.rang-h-arrow{display:flex;align-items:center;color:rgba(155,77,202,0.4);font-size:1.2rem;padding:0 4px;flex-shrink:0}
+.rang-h-num{font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:3px;opacity:0.6}
+.rang-h-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:#fff}
+.rang-h-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;opacity:0.6;margin-bottom:8px}
+.rang-h-desc{font-size:12px;line-height:1.6;margin-top:auto}
+.rang-og{background:rgba(155,77,202,0.25);border:1px solid rgba(155,77,202,0.5)}
+.rang-og .rang-h-num,.rang-og .rang-h-sub{color:#c084fc}
+.rang-og .rang-h-desc{color:#d8b4fe}
+.rang-shot{background:rgba(99,56,172,0.2);border:1px solid rgba(99,56,172,0.4)}
+.rang-shot .rang-h-num,.rang-shot .rang-h-sub{color:#a78bfa}
+.rang-shot .rang-h-desc{color:#c4b5fd}
+.rang-balla{background:rgba(75,0,130,0.2);border:1px solid rgba(75,0,130,0.4)}
+.rang-balla .rang-h-num,.rang-balla .rang-h-sub{color:#8b5cf6}
+.rang-balla .rang-h-desc{color:#a5b4fc}
+.rang-young{background:rgba(45,0,82,0.3);border:1px solid rgba(45,0,82,0.5)}
+.rang-young .rang-h-num,.rang-young .rang-h-sub{color:#7c3aed}
+.rang-young .rang-h-desc{color:#93c5fd}
+.rang-prospect{background:rgba(20,20,20,0.5);border:1px solid rgba(80,80,80,0.3)}
+.rang-prospect .rang-h-num,.rang-prospect .rang-h-sub{color:var(--muted)}
+.rang-prospect .rang-h-desc{color:var(--muted)}
+
+.principes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:600px){.principes-grid{grid-template-columns:1fr}}
+.principe-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.2s}
+.principe-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.principe-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.principe-card:hover::before{transform:scaleX(1)}
+.pc-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(155,77,202,0.15);line-height:1;display:block;margin-bottom:0.5rem}
+.pc-text{font-size:14px;line-height:1.7;color:var(--muted)}
+
+
+.hrp-box{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:1.25rem;text-align:center}
+.hrp-box-icon{font-size:1.8rem;margin-bottom:8px;display:block}
+.hrp-box-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.hrp-box-val{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1px;color:#fff}
+
+.hrp-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+@media(max-width:700px){.hrp-grid-3{grid-template-columns:1fr}}
+.hrp-box-new{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:border-color 0.3s}
+.hrp-box-new:hover{border-color:var(--accent)}
+.hrp-box-new::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.hrp-box-new:hover::before{transform:scaleX(1)}
+.hrp-box-mid{border-color:rgba(155,77,202,0.4)}
+.hrp-box-mid::before{transform:scaleX(1)}
+.hrp-divider{width:100%;height:1px;background:var(--border);margin:4px 0}
+.hrp-box-text{font-size:12px;line-height:1.9;color:var(--muted)}
+.hrp-membres{display:flex;flex-direction:column;gap:6px}
+.hrp-membres p{font-size:11px;color:var(--muted);line-height:1.4}
+.hrp-membres span{color:var(--accent);margin:0 4px}
+.hrp-leaders{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.hrp-leader-row{display:flex;align-items:center;gap:12px}
+.hrp-leader-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(155,77,202,0.2);line-height:1;flex-shrink:0}
+.hrp-leader-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:#fff}
+.hrp-leader-age{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+
+/* SEPARATOR */
+.sep{margin:3rem 0;display:flex;align-items:center;gap:1rem}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--border)}
+.sep span{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;letter-spacing:3px;color:var(--accent);opacity:0.6}
+
+/* PAGE NAV */
+.page-nav{display:flex;justify-content:space-between;align-items:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.nav-btn{font-family:'Barlow',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:10px 24px;border-radius:2px;transition:all 0.2s}
+.nav-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:2rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">BAL<span>LA</span>S</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="histoire.html">Histoire</a></li>
+    <li><a href="dossier.html" class="active">Dossier RP</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <div class="page-header">
+    <span class="page-header-tag">Chapitre 03 — Dossier Officiel StoryLife</span>
+    <h1>La Charte</h1>
+  </div>
+
+  <!-- PARTIE RP -->
+  <div class="section-label"><span>Partie Roleplay</span></div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <p class="info-box-label">Type de groupe</p>
+      <p class="info-box-value">Gang de rue afro-américain</p>
+    </div>
+    <div class="info-box">
+      <p class="info-box-label">Nom du groupe</p>
+      <p class="info-box-value">Ballas</p>
+    </div>
+    <div class="info-box">
+      <p class="info-box-label">Couleur emblématique</p>
+      <p class="info-box-value">Violet 🟣</p>
+    </div>
+    <div class="info-box">
+      <p class="info-box-label">Territoire</p>
+      <p class="info-box-value">Davis & Rancho — South LS</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Origine du groupe</p>
+    <p class="card-text">Les Ballas sont l'un des gangs les plus anciens de Los Santos, actifs depuis les années 70. Nés dans les quartiers sud de la ville, ils ont grandi dans l'ombre des Familles avant de les dépasser. Aujourd'hui ils sont structurés en trois sets — South Ranch Ballas, Eastside Ballas et Original Covenant Ballas — sous une seule bannière violette.</p>
+  </div>
+
+  <!-- PRINCIPES -->
+  <div class="section-label"><span>Principes moraux</span></div>
+
+  <div class="principes-grid">
+    <div class="principe-card">
+      <span class="pc-num">01</span>
+      <p class="pc-text">Ne jamais trahir un frère Ballas — la trahison se paye de sa vie</p>
+    </div>
+    <div class="principe-card">
+      <span class="pc-num">02</span>
+      <p class="pc-text">Respecter la hiérarchie et les OG du gang en toutes circonstances</p>
+    </div>
+    <div class="principe-card">
+      <span class="pc-num">03</span>
+      <p class="pc-text">Ne jamais coopérer avec les forces de l'ordre</p>
+    </div>
+    <div class="principe-card">
+      <span class="pc-num">04</span>
+      <p class="pc-text">Protéger le territoire coûte que coûte — on ne recule jamais</p>
+    </div>
+    <div class="principe-card">
+      <span class="pc-num">05</span>
+      <p class="pc-text">Tout conflit interne se règle en interne, jamais en public</p>
+    </div>
+    <div class="principe-card">
+      <span class="pc-num">06</span>
+      <p class="pc-text">Porter le violet avec fierté — c'est notre identité, pas juste une couleur</p>
+    </div>
+  </div>
+
+  <!-- RANGS -->
+  <div class="section-label"><span>Hiérarchie des rangs</span></div>
+
+  <div class="rang-horizontal">
+    <div class="rang-h-item rang-og">
+      <span class="rang-h-num">01</span>
+      <p class="rang-h-title">OG</p>
+      <p class="rang-h-sub">Original Gangster</p>
+      <p class="rang-h-desc">Les anciens, les fondateurs. Leur parole est plus important que tout. Personne ne remet en question une décision d'un OG.</p>
+    </div>
+    <div class="rang-h-arrow">→</div>
+    <div class="rang-h-item rang-shot">
+      <span class="rang-h-num">02</span>
+      <p class="rang-h-title">Shot Caller</p>
+      <p class="rang-h-sub">Intermédiaire</p>
+      <p class="rang-h-desc">Les yeux et les oreilles du gang sur le terrain. Ils font le lien entre les OG et les membres actifs.</p>
+    </div>
+    <div class="rang-h-arrow">→</div>
+    <div class="rang-h-item rang-balla">
+      <span class="rang-h-num">03</span>
+      <p class="rang-h-title">Balla</p>
+      <p class="rang-h-sub">Membre confirmé</p>
+      <p class="rang-h-desc">A prouvé sa loyauté et sa valeur. Peut donc participer aux activités du gang et défendre le territoire.</p>
+    </div>
+    <div class="rang-h-arrow">→</div>
+    <div class="rang-h-item rang-young">
+      <span class="rang-h-num">04</span>
+      <p class="rang-h-title">Young Balla</p>
+      <p class="rang-h-sub">Nouveau membre</p>
+      <p class="rang-h-desc">Accepté après un moment. Doit encore faire ses preuves. Pas de prise de décision autonome.</p>
+    </div>
+    <div class="rang-h-arrow">→</div>
+    <div class="rang-h-item rang-prospect">
+      <span class="rang-h-num">05</span>
+      <p class="rang-h-title">Prospect</p>
+      <p class="rang-h-sub">En phase de test</p>
+      <p class="rang-h-desc">Pas encore membre officiel. Surveillé de près par les anciens avant toute acceptation dans l'gang.</p>
+    </div>
+  </div>
+
+  <!-- LOCALISATION -->
+  <div class="card" style="margin-top:1.5rem">
+    <p class="card-title">Localisation</p>
+    <p class="card-text">Les Ballas sont implantés à <strong style="color:#fff">Davis</strong> et <strong style="color:#fff">Rancho</strong>, dans le sud de Los Santos. C'est là qu'on est nés, là qu'on a grandi. Ce quartier est le nôtre et on le défend comme on nous a appris, peu importe qui essaie de s'y installer.</p>
+  </div>
+
+  <div class="sep"><span>///</span></div>
+
+  <!-- PARTIE HRP -->
+  <div class="section-label"><span>Partie Hors Roleplay</span></div>
+
+  <div class="hrp-grid-3">
+    <div class="hrp-box-new">
+      <span class="hrp-box-icon">🎮</span>
+      <p class="hrp-box-label">Expérience RP</p>
+      <div class="hrp-divider"></div>
+      <p class="hrp-box-text">Lead Famiglia Bonnano<br>FlashLand WL<br>Vision WL — Lead BMF<br>Anciennement StoryLife<br>+ Nombreuses FA</p>
+    </div>
+    <div class="hrp-box-new hrp-box-mid">
+      <span class="hrp-box-icon">👥</span>
+      <p class="hrp-box-label">Membres</p>
+      <div class="hrp-divider"></div>
+      <div class="hrp-membres">
+        <p>Moi <span>/</span> 1127005492099678208</p>
+        <p>amineeeeee01 <span>/</span> 900334198802489374</p>
+        <p>slay92000 <span>/</span> 1309177447362854922</p>
+        <p>user15172829292911 <span>/</span> 798881388370984960</p>
+      </div>
+    </div>
+    <div class="hrp-box-new">
+      <span class="hrp-box-icon">🎂</span>
+      <p class="hrp-box-label">Âge des leaders</p>
+      <div class="hrp-divider"></div>
+      <div class="hrp-leaders">
+        <div class="hrp-leader-row">
+          <span class="hrp-leader-num">01</span>
+          <div>
+            <p class="hrp-leader-title">1er Leader</p>
+            <p class="hrp-leader-age">20 ans</p>
+          </div>
+        </div>
+        <div class="hrp-leader-row">
+          <span class="hrp-leader-num">02</span>
+          <div>
+            <p class="hrp-leader-title">2ème Leader</p>
+            <p class="hrp-leader-age">19 ans</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"><span>///</span></div>
+
+  <div class="card">
+    <p class="card-title">Motivation sur StoryLife</p>
+    <p class="card-text">Apporter un vrai gang structuré et sérieux sur StoryLife. Créer des rivalités RP réels et crédibles avec d'autres vrai factions et offrir une vraie ambiance de quartier dans Los Santos. Construire une faction qui va au-delà du simple conflit meurtrier.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Ce que nous apportons au serveur</p>
+    <ul class="principe-list">
+      <li>Rivalités RP organisées et réaliste avec les gangs adverses</li>
+      <li>Contrôle de territoire structuré avec des enjeux clairs</li>
+      <li>Événements de quartier, interactions civils, vie de cités</li>
+      <li>Recrutement sérieux et sélectif pour un RP de qualité</li>
+      <li>Ambiance de rue réaliste et immersive fidèle à notre code des Ballas</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="histoire.html" class="nav-btn">← Histoire</a>
+    <a href="index.html" class="nav-btn">Accueil →</a>
+  </div>
+
+</main>
+
+<footer>
+  <img src="storylife.png" alt="StoryLife" style="height:28px;opacity:0.7;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto">
+  <p>Ballas · Purple Nation · Dossier StoryLife V7</p>
+</footer>
+
+<div class="cursor-light" id="cursorLight"></div>
+
+<style>
+.cursor-light{pointer-events:none;position:fixed;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,47,190,0.25) 0%,rgba(123,47,190,0.1) 40%,transparent 70%);transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:0;top:0;left:0}
+</style>
+
+<script>
+const light = document.getElementById('cursorLight');
+document.addEventListener('mousemove', e => {
+  light.style.left = e.clientX + 'px';
+  light.style.top = e.clientY + 'px';
+});
+</script>
+
+</body>
+</html>
